@@ -7,7 +7,7 @@ NPM: 2106631646
 Kelas: PBP-C
 
 1. Bagan
-
+  ![](https://raw.githubusercontent.com/farelakasya/assignment2clone/main/assets/bagan.png)
 
 2. Alasan menggunakan virtual environment
 Penggunaan virtual environment bertujuan untuk mengerjakan suatu project yang mengandung versi berbeda dari sebuah library. Virtual environment memungkinkan kita untuk update versi sebuah library tanpa mengubah versi library yang lainnya di project yang sama. 
