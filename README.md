@@ -15,4 +15,4 @@ Penggunaan virtual environment bertujuan untuk mengerjakan suatu project yang me
 3. Cara implementasi
 Pertama, saya membuat function show_catalog yang menerima parameter request dan mengeluarkan hasil render dan ditampilkan pada katalog.html. Data yang diambil pada fungsi tersebut merupakan data katalog dari model CatalogItem. Kedua, urls.py diisi diisi route/katalog untuk menjalankan fungsi show_katalog pada file katalog/views.py untuk dialihkan ke views yang bersesuaian. Ketiga, saya passing variabel context pada views.py via render method untuk dimasukkan dalam template HTML. Keempat, saya menghubungkan repository github dengan heroku  dan menambah HEROKU_API_KEY dan HEROKU_APP_NAME sebagai secrets pada github dan heroku.
 
-Link plikasi Heroku yang sudah di-deploy : https://assignment-2-pbp-farel.herokuapp.com/katalog/
+Link aplikasi Heroku yang sudah di-deploy : https://assignment-2-pbp-farel.herokuapp.com/katalog/
