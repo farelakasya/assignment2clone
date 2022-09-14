@@ -23,3 +23,4 @@ Ketiga, saya passing variabel context pada views.py via render method untuk dima
 
 Keempat, saya menghubungkan repository github dengan heroku  dan menambah HEROKU_API_KEY dan HEROKU_APP_NAME sebagai secrets pada github dan heroku.
 
+Link plikasi Heroku yang sudah di-deploy : https://assignment-2-pbp-farel.herokuapp.com/katalog/
