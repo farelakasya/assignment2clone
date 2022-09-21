@@ -58,7 +58,10 @@ Menambahkan ‘&& python manage.py loaddata movies_catalog.json’ di  Procfile.
 Screenshot Postman
 
 HTML
+![](https://raw.githubusercontent.com/farelakasya/assignment2clone/mywatchlist/assets/html.png)
 
 JSON
+![](https://raw.githubusercontent.com/farelakasya/assignment2clone/mywatchlist/assets/json.png)
 
 XML
+![](https://raw.githubusercontent.com/farelakasya/assignment2clone/mywatchlist/assets/xml.png)
