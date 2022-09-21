@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.MyWatchlist",
+        "pk": 1,
+        "fields": {
+            "watched" : true,
+            "title" : "Iron Man", 
+            "rating" : 87,
+            "release_date" : "April 30, 2008",
+            "review" : "Worth to watch"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlist",
+        "pk": 2,
+        "fields": {
+            "watched" : true,
+            "title" : "Iron Man 2",
+            "rating" : 87,
+            "release_date" : "April 30, 2010",
+            "review" : "Very cool"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlist",
+        "pk": 3,
+        "fields": {
+            "watched" : true, 
+            "title" : "Iron Man 3",
+            "rating" : 88,
+            "release_date" : "April 25, 2013",
+            "review" : "Bingeworthy"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlist",
+        "pk": 4,
+        "fields": {
+            "watched" : true,
+            "title" : "Avengers", 
+            "rating" : 86,
+            "release_date" : " May 4, 2012",
+            "review" : "Outstanding"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlist",
+        "pk": 5,
+        "fields": {
+            "watched" : true,
+            "title" : "Avengers : Age of Ultron",
+            "rating" : 85,
+            "release_date" : "April 22, 2015",
+            "review" : "Unique"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlist",
+        "pk": 6,
+        "fields": {
+            "watched" : true,
+            "title" : "Avengers : Infinity War",
+            "rating" : 90,
+            "release_date" : "April 25, 2018",
+            "review" : "Awesome"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlist",
+        "pk": 7,
+        "fields": {
+            "watched" : true,
+            "title" : "Avengers : Endgame",
+            "rating" : 94,
+            "release_date" : "April 24, 2019",
+            "review" : "Satisfying"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlist",
+        "pk": 8,
+        "fields": {
+            "watched" : true,
+            "title" : "Spiderman : Homecoming",
+            "rating" : 74,
+            "release_date" : "July 5, 2017",
+            "review" : "Amazing"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlist",
+        "pk": 9,
+        "fields": {
+            "watched" : true,
+            "title" : "Spiderman : Far From Home", 
+            "rating" : 84,
+            "release_date" :"July 3, 2019",
+            "review" : "Not bad"
+        }
+    },
+    {
+        "model": "mywatchlist.MyWatchlist",
+        "pk": 10,
+        "fields": {
+            "watched" : true,
+            "title" : "Spiderman : No Way Home",
+            "rating" : 90,
+            "release_date" : "December 15, 2021",
+            "review" : "Shocking"
+        }
+    }
+]
