@@ -5,7 +5,7 @@ NPM: 2106631646
 
 Kelas: PBP-C
 
-Link : https://assignment-2-pbp-farel.herokuapp.com/mywatchlist/html/
+Link : https://assignment-2-pbp-farel.herokuapp.com/todolist/login/?next=/todolist/
 
 
 # Apa kegunaan {% csrf_token %} pada elemen <form>? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen ?
