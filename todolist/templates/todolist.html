@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+
+  <h1>Todolist</h1>
+
+  <h2>{{username}}</h2>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+      {% for task in todolist %}
+      <tr>
+          <td>{{task.date}}</td>
+          <td>{{task.title}}</td>
+          <td>{{task.description}}</td>
+          {% if task.is_finished %}
+            <td>Task Finished</td>
+          {% else %}
+            <td>In Progress</td>
+          {% endif %}
+          <td><a href="{% url 'todolist:delete_task' task.pk %}" >Delete</a></td>
+          <td><a href="{% url 'todolist:update_task' task.pk %}" >update</a></td>
+      </tr>
+      {% endfor %}
+  </table>
+<br>
+<button><a href="{% url 'todolist:create_task' %}">Create Task</a></button>
+<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+{% endblock content %}
