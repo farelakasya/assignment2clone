@@ -1,24 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Add New Task</h3>
-<form method="post">
-    {% csrf_token %}
 
-    <table>
-        <tr>
-            <td>Title: </td>
-            <td><input type="text" name="title" placeholder="Fill todo" class="form-control"></td>
-        </tr>
-                
-        <tr>
-            <td>Description: </td>
-            <td><input type="text" name="description" placeholder="fill description" class="form-control"></td>
-        </tr>
-    </table>
+<div class="bg-gray-700 flex flex-col min-h-screen justify-center items-center max-w-[100%] md:max-w-[100%] mx-auto gap-5">
 
-    <br>
-    <button type="submit">Create Task</button>
-</form>
+<h2 class="text-4xl font-extrabold dark:text-white">Add New Task</h2>
+<p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">What would you like to achieve?</p>
+
+<br>
+
+
+<a href="#" class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <form method="post">
+        {% csrf_token %}
+    
+        <div class="mb-6">
+            <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title</label>
+            <input type="text" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        </div>
+    
+        <div class="mb-6">
+            <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
+            <input type="text" name="description" class="block p-4 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        </div>
+    
+    
+        <br>
+        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800" type="submit">
+            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                Create Task
+            </span>
+          </button>
+    </form> 
+</a>
+
+
+
+</div>
 
 {% endblock %}
