@@ -4,68 +4,191 @@
 {% endblock meta %}
 
 {% block content %}
+{% load static %}
+
+
 
 <div class="bg-gray-700 flex flex-col min-h-screen justify-center items-center max-w-[100%] md:max-w-[100%] mx-auto gap-5">
 
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-  <div class="container flex flex-wrap justify-between items-center mx-auto">
-    <a href="https://flowbite.com/" class="flex items-center">
+  <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+    <div class="container flex flex-wrap justify-between items-center mx-auto">
+      <a class="flex items-center">
         <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">To Do List</span>
-    </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-      <span class="sr-only">Open main menu</span>
-      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-    </button>
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-        <li>
-          <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
-        </li>
-        <li>
-          <a href="{% url 'todolist:logout' %}" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</a>
-        </li>
-      </ul>
+      </a>
+    
+
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'todolist:logout' %}" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+
+  <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Welcome back, {{username}}</h1>
+
+
+  <br>
+  <tbody id="cardcontainer">
+
+  
+
+  </tbody>  
+  <br>
+
+  
+<!-- Modal toggle -->
+<button 
+    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" 
+    type="button" 
+    data-modal-toggle="authentication-modal"
+    id="modal-toggle">
+    Create Task
+
+</button>
+
+<!-- Main modal -->
+<div
+  id="create-task-modal"
+  class="w-full fixed flex justify-center w-full z-10 min-h-screen items-center bg-black bg-opacity-50 hidden"
+  >
+
+<a  class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+  <div id="close-icon" class="cursor-pointer text-white">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
   </div>
-</nav>
-
-
-<h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Welcome back, {{username}}</h1>
-
-
-<br>
-<tbody >
-{% for task in todolist %}
-
-<div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-  <a href="#">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{task.title}}</h5>
-  </a>
-  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{task.description}}</p>
-  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{task.date}}</p>
-  <p></p>
-  {% if task.is_finished %}
-    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Task Finished</p>
-  {% else %}
-    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">In Progress</p>
-  {% endif %}
-
-  <a href="{% url 'todolist:delete_task' task.pk %}" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-      Delete Task
-  </a>
-  <a href="{% url 'todolist:update_task' task.pk %}" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-    Update Task
+  <form method="post" id="add-task-form">
+      {% csrf_token %}
+  
+      <div class="mb-6">
+          <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Title</label>
+          <input id="title" type="text" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      </div>
+  
+      <div class="mb-6">
+          <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
+          <input id="description" type="text" name="description" class="block p-4 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      </div>
+  
+  
+      <br>
+      <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800" type="submit">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              Create Task
+          </span>
+        </button>
+  </form> 
 </a>
 
 </div>
-{% endfor %}
-</tbody>  
-
-<br>
-<button><a href="{% url 'todolist:create_task' %}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create task</a></button>
-
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+  const openModal = e => {
+       
+        $("#create-task-modal").removeClass("hidden");
+      };
+
+      const closeModal = e => {
+        $("#create-task-modal").addClass("hidden");
+      };
+
+  
+
+  $(document).ready(function()  {
+    refreshTodolist();
+    $("#modal-toggle").click(openModal);
+    $("#close-icon").click(closeModal);
+  });
+  
+  // async function getTodolist() {
+  //   return fetch("{% url 'todolist:show_json' %}").then((res) => res.json())
+  // }
+
+  function card(item) {
+    return `\n
+        <tr>
+          <div class = "class="card" style="width: 18rem;">
+            <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${item.fields.title}</h5>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${item.fields.date}</p>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${item.fields.description}</p>
+
+              <p class="card-text"></p> 
+              {% if task.is_finished %}
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Task Finished</p>
+              {% else %}
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">In Progress</p>
+              {% endif %}
+            </div>
+          </div>
+        </tr>
+        ` 
+  }
+
+  const refreshTodolist = () => {
+      // fetching the tasks
+      $.get("{% url 'todolist:show_json' %}", data => {
+        $.each(data, (i, value) => {
+          $("#cardcontainer").append(card(value)); // append to the div
+        });
+      });
+    };
+
+  function add_task_with_ajax() {
+    fetch("{% url 'todolist:add_task_with_ajax' %}", {
+          method: "POST",
+          body: new FormData(document.querySelector('#formtask'))
+      }).then(refreshTodolist)
+    return false
+  }
+
+  $("#add-task-form").submit(e => {
+      e.preventDefault();
+
+      // get the CSRF Token
+      const csrftoken = document.querySelector(
+        "[name=csrfmiddlewaretoken]"
+      ).value;
+
+      const title = $("#title").val();
+      const description = $("#description").val();
+
+      $.ajax({
+        type: "POST",
+        url: "{% url 'todolist:add_task_with_ajax' %}",
+        headers: { "X-CSRFToken": csrftoken }, // give CSRF token to the header
+        mode: "same-origin", // Do not send CSRF token to another domain.
+        data: {
+          title: title,
+          description: description,
+        },
+        success: response => {
+          $("#add-task-form").trigger("reset");
+          closeModal();
+          $("#cardcontainer").append(card(response));
+        },
+        error: error => {
+          console.log(error);
+        },
+      });
+    });
+
+  document.getElementById("addtaskbutton").onclick = addTodolist
+  refreshTodolist()
+
+</script>
 
 
 {% endblock content %}
