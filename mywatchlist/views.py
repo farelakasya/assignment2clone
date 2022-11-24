@@ -15,7 +15,7 @@ def show_watchlist(request):
             movies_watched += 1
     watch_prompt = "Wah, kamu masih sedikit menonton!"
 
-    if movies_watched > movies_count/2:
+    if movies_watched >= movies_count/2:
         watch_prompt = "Selamat, kamu sudah banyak menonton!"
 
     context = {

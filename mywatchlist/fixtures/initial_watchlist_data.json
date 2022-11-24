@@ -3,7 +3,7 @@
         "model": "mywatchlist.MyWatchlist",
         "pk": 1,
         "fields": {
-            "watched" : true,
+            "watched" : false,
             "title" : "Iron Man", 
             "rating" : 87,
             "release_date" : "April 30, 2008",
@@ -14,7 +14,7 @@
         "model": "mywatchlist.MyWatchlist",
         "pk": 2,
         "fields": {
-            "watched" : true,
+            "watched" : false,
             "title" : "Iron Man 2",
             "rating" : 87,
             "release_date" : "April 30, 2010",
@@ -25,7 +25,7 @@
         "model": "mywatchlist.MyWatchlist",
         "pk": 3,
         "fields": {
-            "watched" : true, 
+            "watched" : false, 
             "title" : "Iron Man 3",
             "rating" : 88,
             "release_date" : "April 25, 2013",
@@ -36,7 +36,7 @@
         "model": "mywatchlist.MyWatchlist",
         "pk": 4,
         "fields": {
-            "watched" : true,
+            "watched" : false,
             "title" : "Avengers", 
             "rating" : 86,
             "release_date" : " May 4, 2012",
@@ -47,7 +47,7 @@
         "model": "mywatchlist.MyWatchlist",
         "pk": 5,
         "fields": {
-            "watched" : true,
+            "watched" : false,
             "title" : "Avengers : Age of Ultron",
             "rating" : 85,
             "release_date" : "April 22, 2015",
